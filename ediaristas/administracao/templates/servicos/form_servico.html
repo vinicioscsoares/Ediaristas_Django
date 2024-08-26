@@ -8,6 +8,8 @@
     {% csrf_token %}
     {{form_servico.as_p}}
     <button class="btn btn-primary" type="submit">Cadastrar</button>
+    <a href='{% url 'listar_servico' %}' class='btn btn-primary'>Voltar</a>
+
 </form>
 
 {% endblock content %}
