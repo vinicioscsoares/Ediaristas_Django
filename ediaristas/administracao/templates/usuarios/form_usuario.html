@@ -1,11 +1,19 @@
 {% extends 'base.html' %}
-
+{% load bootstrap4 %}
 {% block content %}
-<form action="POST">
-    {% csrf_token %}
-    {{form_usuario.as_p}}
-    <input type="submit" class="btn btn-primary"value="Salvar">
-
-</form>
-
+<div class='card card-primary'>
+    <div class='class card-header'>
+        <div class='card-title'>Cadastro de Usuários</div>
+    </div>
+    
+    <div class='card-body'>
+        <form method="POST">
+            {% csrf_token %}
+            {% bootstrap_form form_usuario %}
+            <button class="btn btn-primary" type="submit">Cadastrar</button>
+            <a href='{% url 'listar_servico' %}' class='btn btn-primary'>Voltar</a>
+        </form>
+    </div>
+    
+</div>
 {% endblock content %}

@@ -1,11 +1,11 @@
-from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render,redirect
+from ..forms.usuarios_forms import UsuarioForm
+from django.shortcuts import render
 
 def cadastrar_usuario(request):
     if request.method == "POST":
-        form_usuario = UserCreationForm(request.POST)
-        if form.is_valid():
+        form_usuario = UsuarioForm(request.POST)
+        if form_usuario.is_valid():
             form_usuario.save()
     else:
-        form_usuario=UserCreationForm()
+        form_usuario=UsuarioForm()
     return render(request,'usuarios/form_usuario.html',{'form_usuario':form_usuario})
