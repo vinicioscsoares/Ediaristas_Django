@@ -1,11 +1,11 @@
 from django.shortcuts import render,redirect
-from .forms import ServicoForm
-from .models import Servico
+from ..forms import ServicoForm
+from ..models import Servico
 
 # Create your views here.
 
 def cadastar_servico(request):
-    if request.method=='POST':
+    if request.method=="POST":
         form_servico = ServicoForm(request.POST)
         if form_servico.is_valid():
             form_servico.save()
