@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listagem de Usuários
+{% endblock title %}
+
+{% block content %}
+
+<div class='card'>
+    <div class= 'card-header'>
+        <h3 class='card-title'>Lista de Usuários</h3>
+    </div>
+    <div class'card-body p-0' >
+        <table class='table table-condensed'>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Super User</th>
+                    <th>Data de Cadastro</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
+                    <tr>
+                        <td>{{usuario.id}}</td>
+                        <td>{{usuario.username}}</td>
+                        <td>{{usuario.email}}</td>
+                        <td>{{usuario.is_superuser}}</td>
+                        <td>{{usuario.date_joined}}</td>
+                        <td>
+                            <a href="#">Editar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<a href="{% url 'cadastrar_usuario' %}" class='btn btn-primary'>Cadastrar</a>
+<a href="{% url 'listar_servico' %}" class='btn btn-primary'>Voltar</a>
+{% endblock content %}
