@@ -3,52 +3,31 @@
 {% block content %}
 <div class='card card-primary'>
     <div class='class card-header'>
-        <div class='card-title'>Cadastro de Usuários</div>
+        <div class='card-title'> {% if request.resolver_match.url_name == 'cadastrar_usuario' %}
+                Cadastro de Usuários
+            {% else %}
+                Edição de Usuário
+            {% endif %}
+        </div>
     </div>
     
     <div class='card-body'>
         <form method="POST">
             {% csrf_token %}
-            <div class="row">
-                <div class='col-md-6'>
-                    <div class='form-group'>
-                            {% bootstrap_field form_usuario.first_name %}
-                    </div>
-                </div>
-                <div class='col-md-6'>
-                    <div class='form-group'>
-                        {%bootstrap_field form_usuario.last_name%}
-                    </div>
-                </div>
-                
-            </div>
-            <div class="row">
-                <div class='col-md-6'>
-                    <div class='form-group'>
-                            {% bootstrap_field form_usuario.username %}
-                    </div>
-                </div>
-                <div class='col-md-6'>
-                    <div class='form-group'>
-                        {%bootstrap_field form_usuario.email%}
-                    </div>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class='col-md-6'>
-                    <div class='form-group'>
-                        {% bootstrap_field form_usuario.password1 %}
-                    </div>
-                </div>
-                <div class='col-md-6'>
-                    <div class='form-group'>
-                        {% bootstrap_field form_usuario.password2 %}
-                    </div>
-                </div>
-            </div>
-            <button class="btn btn-primary" type="submit">Cadastrar</button>
-            <a href='{% url 'listar_servico' %}' class='btn btn-primary'>Voltar</a>
+            {% bootstrap_form form_usuario %}
+            <button class="btn btn-primary" type="submit">
+                {% if request.resolver_match.url_name == 'cadastrar_usuario' %} 
+                    Cadastrar
+                {% else %}
+                    Editar
+                {% endif %}
+            </button>
+            <a href="
+            {% if request.resolver_match.url_name == 'listar_usuario' %}
+             {% url 'listar_servico' %}
+            {% else %}
+             {% url 'listar_usuario' %}            
+            {% endif %}" class='btn btn-primary'>Voltar</a>
         </form>
     </div>
     

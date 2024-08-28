@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import servico_views, usuario_views
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
@@ -8,4 +9,6 @@ urlpatterns = [
     path('servico/editar/<int:id>', servico_views.editar_servico,name='editar_servico'),
     path('usuarios/cadastrar', usuario_views.cadastrar_usuario,name='cadastrar_usuario'),
     path('usuarios/listar', usuario_views.listar_usuario,name='listar_usuario'),
+    path('usuarios/editar/<int:id>', usuario_views.editar_usuario,name='editar_usuario'),
+    path('auth/login',auth_views.LoginView.as_view(),name='logar_usuario'),
 ]

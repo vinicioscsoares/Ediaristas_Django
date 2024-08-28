@@ -34,7 +34,7 @@
                         <td>{{usuario.is_superuser}}</td>
                         <td>{{usuario.date_joined}}</td>
                         <td>
-                            <a href="#">Editar</a>
+                            <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
                         </td>
                     </tr>
                 {% endfor %}
