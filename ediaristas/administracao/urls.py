@@ -11,4 +11,5 @@ urlpatterns = [
     path('usuarios/listar', usuario_views.listar_usuario,name='listar_usuario'),
     path('usuarios/editar/<int:id>', usuario_views.editar_usuario,name='editar_usuario'),
     path('auth/login',auth_views.LoginView.as_view(),name='logar_usuario'),
+    path('auth/logout',auth_views.LogoutView.as_view(),name='logout_usuario'),
 ]

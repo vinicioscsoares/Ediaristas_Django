@@ -9,7 +9,17 @@
         <a href="{% url 'listar_servico' %}" class="nav-link">Home</a>
     </li>
 </ul>
+
 {% block nav_bar_center %}
 {{block.super}}
 {% endblock nav_bar_center %}
+<ul class="navbar-nav ml-auto">
+    <li class="nav-item d-none d-sm-inline-block">
+        <form method="POST" action="{% url 'logout_usuario' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
+    </li>
+</ul>
 {% endblock nav_bar %}
+
