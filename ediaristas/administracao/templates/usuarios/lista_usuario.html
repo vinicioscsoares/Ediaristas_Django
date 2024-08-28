@@ -15,8 +15,10 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Nome</th>
-                    <th>Email</th>
+                    <th>Username</th>
+                    <th>Primeiro Nome</th>
+                    <th>Segundo Nome</th>
+                    <th>email</th>
                     <th>Super User</th>
                     <th>Data de Cadastro</th>
                 </tr>
@@ -26,6 +28,8 @@
                     <tr>
                         <td>{{usuario.id}}</td>
                         <td>{{usuario.username}}</td>
+                        <td>{{usuario.first_name}}</td>
+                        <td>{{usuario.last_name}}</td>
                         <td>{{usuario.email}}</td>
                         <td>{{usuario.is_superuser}}</td>
                         <td>{{usuario.date_joined}}</td>
