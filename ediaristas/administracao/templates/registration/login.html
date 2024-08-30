@@ -1,10 +1,14 @@
 {% extends 'adminlte/login.html' %}
-
-
 {% block logo %}
+{% if request.resolver_match.url_name == 'logout_success' %}
+<div class="alert alert-success" role="alert">
+    Faça o login para usar o sistema.
+</div>
+{% else %}
 <div class="login-logo">
     <a href="#">{% block logo_text %}<b>E-</b>Diaristas{% endblock %}</a>
 </div>
+{% endif %}
 {% endblock logo %}
 
 

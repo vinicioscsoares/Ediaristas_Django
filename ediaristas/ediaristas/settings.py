@@ -124,9 +124,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+LOGIN_URL = 'logar_usuario'
+
+
 LOGIN_REDIRECT_URL='listar_servico'
 
-LOGOUT_REDIRECT_URL='logar_usuario'
+LOGOUT_REDIRECT_URL='logout_success'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

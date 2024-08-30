@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="alert alert-success" role="alert">
+    Senha alterada com sucesso!
+  </div>
+  <a class='btn btn-primary' href="{% url 'listar_usuario' %}">Listar Usuários</a>
+            <a href='{% url 'listar_servico' %}' class='btn btn-primary'>Listar Serviços</a>
+{% endblock content %}

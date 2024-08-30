@@ -1,0 +1,22 @@
+{% extends 'adminlte/login.html' %}
+
+
+{% block logo %}
+<div class="alert alert-danger" role="alert">
+    Logout feito com sucesso!
+  </div>
+<div class="login-logo">
+    <a href="#">{% block logo_text %}<b>E-</b>Diaristas{% endblock %}</a>
+</div>
+{% endblock logo %}
+
+{% block login_form %}
+<script>
+  setTimeout(function(){
+    window.location.href= "{% url 'logar_usuario' %}"
+  },5000)
+
+</script>
+
+{% endblock login_form %}
+
