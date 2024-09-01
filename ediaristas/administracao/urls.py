@@ -17,4 +17,8 @@ urlpatterns = [
     path('auth/logout/sucesso/',usuario_views.logout_success, name='logout_success'),
     path('alterar_senha/',login_required(auth_views.PasswordChangeView.as_view(success_url=reverse_lazy('senha_alterada'))),name='alterar_senha'),
     path('alterar_senha/sucesso',login_required(usuario_views.senha_alterada), name='senha_alterada'),
+    path('resetar_senha/',auth_views.PasswordResetView.as_view(),name='resetar_senha'),
+    path('resetar_senha/sucesso',auth_views.PasswordResetDoneView.as_view(),name='resetar_senha_success'),
+    path('resetar_senha/<str:uidb64>/<str:token>',auth_views.PasswordResetConfirmView.as_view(),name='resetar_senha_confirm'),
+    path('resetar_senha/feito',auth_views.PasswordResetDoneView.as_view(),name='resetar_senha_done'),
 ]
